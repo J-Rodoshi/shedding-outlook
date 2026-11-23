@@ -1,0 +1,95 @@
+{
+  "model_type": "xgboost",
+  "mode": "final_refit",
+  "not_rolling_origin_test_models": true,
+  "timezone": "Asia/Dhaka",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "horizons_hours": [
+    1,
+    6,
+    24
+  ],
+  "features": {
+    "expanded": [
+      "dayofweek",
+      "demand_mw",
+      "demand_mw_lag1",
+      "demand_mw_lag24",
+      "gap_now",
+      "generation_mw",
+      "generation_mw_lag1",
+      "generation_mw_lag24",
+      "hour",
+      "hour_cos",
+      "hour_sin",
+      "india_bheramara_hvdc",
+      "india_tripura",
+      "is_holiday",
+      "is_weekend",
+      "load_shedding_lag1",
+      "load_shedding_lag168",
+      "load_shedding_lag24",
+      "load_shedding_roll168",
+      "load_shedding_roll168_count",
+      "load_shedding_roll24",
+      "load_shedding_roll24_count",
+      "national_humidity",
+      "national_precipitation",
+      "national_solar_radiation",
+      "national_temperature",
+      "national_wind_speed",
+      "shed_now"
+    ],
+    "baseline": [
+      "load_shedding_lag1",
+      "load_shedding_lag24",
+      "load_shedding_lag168",
+      "load_shedding_roll24",
+      "load_shedding_roll168",
+      "load_shedding_roll24_count",
+      "load_shedding_roll168_count",
+      "gap_now",
+      "shed_now",
+      "hour",
+      "hour_sin",
+      "hour_cos"
+    ]
+  },
+  "files": {
+    "expanded_1h": [
+      "expanded_1h_seed0.json",
+      "expanded_1h_seed1.json",
+      "expanded_1h_seed2.json"
+    ],
+    "baseline_1h": [
+      "baseline_1h_seed0.json",
+      "baseline_1h_seed1.json",
+      "baseline_1h_seed2.json"
+    ],
+    "expanded_6h": [
+      "expanded_6h_seed0.json",
+      "expanded_6h_seed1.json",
+      "expanded_6h_seed2.json"
+    ],
+    "baseline_6h": [
+      "baseline_6h_seed0.json",
+      "baseline_6h_seed1.json",
+      "baseline_6h_seed2.json"
+    ],
+    "expanded_24h": [
+      "expanded_24h_seed0.json",
+      "expanded_24h_seed1.json",
+      "expanded_24h_seed2.json"
+    ],
+    "baseline_24h": [
+      "baseline_24h_seed0.json",
+      "baseline_24h_seed1.json",
+      "baseline_24h_seed2.json"
+    ]
+  },
+  "training_end": "2026-03-08 22:00:00"
+}

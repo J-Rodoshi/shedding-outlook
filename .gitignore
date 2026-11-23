@@ -1,0 +1,13 @@
+.venv/
+.venv-gpu/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.sqlite
+*.parquet
+*.ipynb
+*.pem
+.env
+.env.*
+!*.env.example
+projectdata/

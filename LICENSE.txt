@@ -1,0 +1,4 @@
+Source code is provided for educational/course-project use. Dataset copyrights
+and attribution obligations remain with the original data providers. The
+experimental results and model artifacts are provided as research outputs, not
+as operational outage guarantees.

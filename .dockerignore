@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+.venv-gpu
+__pycache__
+.pytest_cache
+*.ipynb
+*.parquet
+*.sqlite
+*.csv
+!web/data/*.csv
+*.pdf
+*.zip
+projectdata
+scripts
+README.md

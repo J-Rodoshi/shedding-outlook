@@ -1,0 +1,138 @@
+{
+  "source": "Original project notebook results CSVs",
+  "typical": [
+    [
+      "Hot weather",
+      [
+        [
+          "Coldest tenth of hours",
+          9.7
+        ],
+        [
+          "Hottest tenth of hours",
+          68.8
+        ]
+      ]
+    ],
+    [
+      "Holidays",
+      [
+        [
+          "Public holidays",
+          26.7
+        ],
+        [
+          "Other days",
+          42.6
+        ]
+      ]
+    ],
+    [
+      "Year by year",
+      [
+        [
+          "2022",
+          26.1
+        ],
+        [
+          "2023",
+          57.1
+        ],
+        [
+          "2024",
+          57.3
+        ],
+        [
+          "2025",
+          37.6
+        ]
+      ]
+    ]
+  ],
+  "brier": [
+    {
+      "horizon": 1,
+      "label": "Next hour",
+      "baseline": 0.0561,
+      "expanded": 0.0542,
+      "gain": "3.4% better",
+      "interpretation": "Small gain. Probability calibration is comparatively reliable here."
+    },
+    {
+      "horizon": 6,
+      "label": "Next 6 hours",
+      "baseline": 0.14,
+      "expanded": 0.123,
+      "gain": "12.1% better",
+      "interpretation": "Clearest improvement. Treat the forecast as a risk ranking rather than a precise chance."
+    },
+    {
+      "horizon": 24,
+      "label": "Tomorrow",
+      "baseline": 0.1484,
+      "expanded": 0.1436,
+      "gain": "Not established",
+      "interpretation": "The difference is within the uncertainty range; improvement is not established."
+    }
+  ],
+  "importance": [
+    [
+      "Recent shedding history",
+      0.0877
+    ],
+    [
+      "Demand and generation",
+      0.0381
+    ],
+    [
+      "Calendar",
+      0.0279
+    ],
+    [
+      "Weather",
+      0.017
+    ],
+    [
+      "Cross-border imports",
+      -0.0001
+    ]
+  ],
+  "quarters": [
+    [
+      "2024 Q1",
+      -0.0408
+    ],
+    [
+      "2024 Q2",
+      -0.0199
+    ],
+    [
+      "2024 Q3",
+      -0.0005
+    ],
+    [
+      "2024 Q4",
+      -0.0079
+    ],
+    [
+      "2025 Q1",
+      0.0245
+    ],
+    [
+      "2025 Q2",
+      -0.0334
+    ],
+    [
+      "2025 Q3",
+      -0.0497
+    ],
+    [
+      "2025 Q4",
+      -0.0121
+    ],
+    [
+      "2026 Q1",
+      -0.0081
+    ]
+  ]
+}

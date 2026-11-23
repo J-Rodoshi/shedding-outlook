@@ -1,0 +1,67 @@
+{
+  "data_sources": "The user-provided CP Electricity Project archive",
+  "source_files": {
+    "modeling_ready.parquet": {
+      "sha256": "37df2de0fb55937692b441179171f25c98632d0ba97aa560cdac89524347e926",
+      "size_bytes": 2383713
+    },
+    "checkpoint_7_regularized.parquet": {
+      "sha256": "eac3bfe7bebdb26f2ecdadd8ab4d96a3ed40bdf9a9f1e50f46d081c2e0ca9e53",
+      "size_bytes": 1704512
+    },
+    "results/final_summary.csv": {
+      "sha256": "4eaee1c3d4ecb45fd4b5cacfaa6b38ea050841b97652e22b05da08d0fb061dc5",
+      "size_bytes": 1937
+    },
+    "results/fold_summary.csv": {
+      "sha256": "622a931abc7589bb7bbe68502ffa15600ea3a2f63ed4ef58a6242844926c9949",
+      "size_bytes": 9038
+    }
+  },
+  "protocol": "Expanding quarterly train/score, nine folds Jan 2024\u2013Mar 2026, horizons 1/6/24, seeds 0/1/2",
+  "source_notebook": "Load_Shedding_Final_Project.ipynb",
+  "predictions": "Out-of-sample predictions from fold-specific models",
+  "saved_models": "Final-refit models; distinct from the out-of-sample fold models",
+  "validation_brier": [
+    {
+      "horizon_hours": 1,
+      "model": "expanded",
+      "n": 16099,
+      "brier": 0.054485439919972
+    },
+    {
+      "horizon_hours": 1,
+      "model": "baseline",
+      "n": 16099,
+      "brier": 0.0561354565313771
+    },
+    {
+      "horizon_hours": 6,
+      "model": "expanded",
+      "n": 15307,
+      "brier": 0.1235435232045371
+    },
+    {
+      "horizon_hours": 6,
+      "model": "baseline",
+      "n": 15307,
+      "brier": 0.1399493075965796
+    },
+    {
+      "horizon_hours": 24,
+      "model": "expanded",
+      "n": 16059,
+      "brier": 0.1433154419019788
+    },
+    {
+      "horizon_hours": 24,
+      "model": "baseline",
+      "n": 16059,
+      "brier": 0.1485504735756431
+    }
+  ],
+  "no_synthetic_predictions": true,
+  "no_live_data_service": true,
+  "label_scope": "National operator-reported load shedding (binary)",
+  "feature_selection_limit": "Exploratory 28-feature subset selected after inspecting evaluation folds"
+}
