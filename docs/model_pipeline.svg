@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1720 920" width="1720" height="920" role="img" aria-labelledby="ttl desc"><title id="ttl">Shedding Outlook forecasting model architecture</title><desc id="desc">PGCB, ERA5, and holiday data are aligned, transformed to origin-time features, and passed into a twelve-feature baseline and a twenty-eight-feature XGBoost model for one-hour, six-hour and twenty-four-hour predictions. Historical rolling-origin evaluations and separate final-refit model artifacts follow distinct paths.</desc><rect x="0" y="0" width="1720" height="920" fill="#FFFFFF"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#1D2937}.t{font-weight:700;font-size:36px}.subtitle{font-size:20px;fill:#526175}.stage{font-weight:700;font-size:17px;letter-spacing:1px;fill:#284761}.hd{font-weight:700;font-size:21px}.body{font-size:17px;fill:#374659}.small{font-size:15px;fill:#536477}.output{font-size:17px;font-weight:700;fill:#253F59}.foot{font-size:17px;fill:#475569}.line{stroke:#6F879B;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.branch{stroke:#91A1AE;stroke-width:2.5;fill:none}</style><defs><marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#6F879B"/></marker></defs>
+<text x="50" y="65" class="t">
+<tspan x="50" dy="0">Shedding Outlook | Forecasting Model Architecture</tspan>
+</text>
+<text x="50" y="101" class="subtitle">
+<tspan x="50" dy="0">National binary load-shedding occurrence  |  Forecast origins in Asia/Dhaka</tspan>
+</text>
+<path d="M50 120 H1670" stroke="#D6DEE7" stroke-width="2"/>
+<text x="50" y="171" class="stage">
+<tspan x="50" dy="0">01   INPUT DATA</tspan>
+</text>
+<text x="355" y="171" class="stage">
+<tspan x="355" dy="0">02   PREPROCESSING</tspan>
+</text>
+<text x="660" y="171" class="stage">
+<tspan x="660" dy="0">03   FEATURES AT t</tspan>
+</text>
+<text x="1000" y="171" class="stage">
+<tspan x="1000" dy="0">04   SAME LEARNER</tspan>
+</text>
+<text x="1360" y="171" class="stage">
+<tspan x="1360" dy="0">05   FORECAST OUTPUT</tspan>
+</text>
+<path class="line" d="M310 356 H351" marker-end="url(#arrow)"/>
+<path class="line" d="M620 356 H656" marker-end="url(#arrow)"/>
+<path class="line" d="M960 356 H983" />
+<path class="branch" d="M983 274 V427" />
+<path class="line" d="M983 274 H997" marker-end="url(#arrow)"/>
+<path class="line" d="M983 427 H997" marker-end="url(#arrow)"/>
+<path class="line" d="M1315 274 H1336 V356" />
+<path class="line" d="M1315 426 H1336 V356" />
+<path class="line" d="M1336 356 H1356" marker-end="url(#arrow)"/>
+<rect x="50" y="208" width="260" height="77" rx="8" fill="#F0F5F9" stroke="#AABBCB" stroke-width="2"/>
+<text x="68" y="239" class="hd">
+<tspan x="68" dy="0">PGCB electricity</tspan>
+</text>
+<text x="68" y="263" class="small">
+<tspan x="68" dy="0">Shedding; demand; generation</tspan>
+</text>
+<rect x="50" y="301" width="260" height="77" rx="8" fill="#F0F5F9" stroke="#AABBCB" stroke-width="2"/>
+<text x="68" y="332" class="hd">
+<tspan x="68" dy="0">ERA5 weather</tspan>
+</text>
+<text x="68" y="356" class="small">
+<tspan x="68" dy="0">52-point national aggregate</tspan>
+</text>
+<rect x="50" y="394" width="260" height="77" rx="8" fill="#F0F5F9" stroke="#AABBCB" stroke-width="2"/>
+<text x="68" y="425" class="hd">
+<tspan x="68" dy="0">Bangladesh calendar</tspan>
+</text>
+<text x="68" y="449" class="small">
+<tspan x="68" dy="0">Holidays; Fri–Sat weekend</tspan>
+</text>
+<rect x="355" y="247" width="265" height="221" rx="8" fill="#F6F8FA" stroke="#AABBCB" stroke-width="2"/>
+<text x="376" y="284" class="hd">
+<tspan x="376" dy="0">Quality and alignment</tspan>
+</text>
+<text x="376" y="323" class="body">
+<tspan x="376" dy="0">• Audit anomalous readings</tspan>
+<tspan x="376" dy="29">• Deduplicate hourly records</tspan>
+<tspan x="376" dy="29">• Align timestamps</tspan>
+<tspan x="376" dy="29">• Handle missing observations</tspan>
+<tspan x="376" dy="29">• Match national sources</tspan>
+</text>
+<rect x="660" y="227" width="300" height="261" rx="8" fill="#F0F5F9" stroke="#AABBCB" stroke-width="2"/>
+<text x="680" y="266" class="hd">
+<tspan x="680" dy="0">Origin-time features</tspan>
+</text>
+<text x="680" y="306" class="body">
+<tspan x="680" dy="0">• Current shedding state</tspan>
+<tspan x="680" dy="30">• Lagged shedding: 1/24/168h</tspan>
+<tspan x="680" dy="30">• Rolling 24/168h summaries</tspan>
+<tspan x="680" dy="30">• System / weather / calendar</tspan>
+<tspan x="680" dy="30">• Available by origin t</tspan>
+</text>
+<rect x="1000" y="209" width="315" height="127" rx="8" fill="#F3F7F9" stroke="#AABBCB" stroke-width="2"/>
+<text x="1020" y="245" class="hd">
+<tspan x="1020" dy="0">12-feature baseline</tspan>
+</text>
+<text x="1020" y="276" class="body">
+<tspan x="1020" dy="0">State-aware persistence</tspan>
+</text>
+<text x="1020" y="301" class="small">
+<tspan x="1020" dy="0">XGBoost; seeds 0, 1, 2</tspan>
+</text>
+<rect x="1000" y="364" width="315" height="127" rx="8" fill="#EDF4FB" stroke="#AABBCB" stroke-width="2"/>
+<text x="1020" y="400" class="hd">
+<tspan x="1020" dy="0">28-feature expanded</tspan>
+</text>
+<text x="1020" y="431" class="body">
+<tspan x="1020" dy="0">System + weather + calendar</tspan>
+</text>
+<text x="1020" y="456" class="small">
+<tspan x="1020" dy="0">XGBoost; seeds 0, 1, 2</tspan>
+</text>
+<rect x="1360" y="246" width="310" height="225" rx="8" fill="#F7FAFC" stroke="#AABBCB" stroke-width="2"/>
+<text x="1382" y="287" class="hd">
+<tspan x="1382" dy="0">Probability of shedding</tspan>
+</text>
+<text x="1382" y="327" class="output">
+<tspan x="1382" dy="0">P(y at t + 1 h)</tspan>
+</text>
+<text x="1382" y="368" class="output">
+<tspan x="1382" dy="0">P(y at t + 6 h)</tspan>
+</text>
+<text x="1382" y="409" class="output">
+<tspan x="1382" dy="0">P(y at t + 24 h)</tspan>
+</text>
+<text x="1382" y="446" class="small">
+<tspan x="1382" dy="0">Separate classifier per horizon</tspan>
+</text>
+<path d="M50 548 H1670" stroke="#D6DEE7" stroke-width="2"/>
+<text x="50" y="584" class="stage">
+<tspan x="50" dy="0">TWO DISTINCT OUTPUT PATHS</tspan>
+</text>
+<path class="line" d="M855 500 V606" />
+<path class="line" d="M855 606 H450 V631" marker-end="url(#arrow)"/>
+<path class="line" d="M855 606 H1280 V631" marker-end="url(#arrow)"/>
+<rect x="80" y="641" width="755" height="200" rx="8" fill="#F8FAFC" stroke="#9DAFBE" stroke-width="2"/>
+<text x="103" y="681" class="hd">
+<tspan x="103" dy="0">A. Historical, out-of-sample predictions</tspan>
+</text>
+<text x="103" y="719" class="body">
+<tspan x="103" dy="0">Nine expanding quarterly tests (2024 Q1–2026 Q1); lead-time gap</tspan>
+</text>
+<text x="103" y="748" class="body">
+<tspan x="103" dy="0">Brier, ROC-AUC, calibration, transitions and drift analysis</tspan>
+</text>
+<text x="103" y="786" class="output">
+<tspan x="103" dy="0">web/data/outlook.json  •  16,099 archived origin hours</tspan>
+</text>
+<text x="103" y="813" class="small">
+<tspan x="103" dy="0">web/data/report.json  •  study summaries</tspan>
+</text>
+<rect x="885" y="641" width="755" height="200" rx="8" fill="#F8FAFC" stroke="#9DAFBE" stroke-width="2"/>
+<text x="908" y="681" class="hd">
+<tspan x="908" dy="0">B. Separate final-refit models for serving</tspan>
+</text>
+<text x="908" y="719" class="body">
+<tspan x="908" dy="0">Fit on eligible historical training data after evaluation</tspan>
+</text>
+<text x="908" y="748" class="body">
+<tspan x="908" dy="0">2 configurations × 3 horizons × 3 seeds = 18 model files</tspan>
+</text>
+<text x="908" y="786" class="output">
+<tspan x="908" dy="0">artifacts/models/*.json  •  manifest.json</tspan>
+</text>
+<text x="908" y="813" class="small">
+<tspan x="908" dy="0">FastAPI POST /api/predict-from-features (complete feature vector)</tspan>
+</text>
+<text x="50" y="887" class="foot">
+<tspan x="50" dy="0">Important: the final-refit serving models are distinct from the fold-specific models used to score out-of-sample forecasts.</tspan>
+</text>
+</svg>
